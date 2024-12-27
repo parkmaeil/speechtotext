@@ -28,7 +28,7 @@
     <!-- Transcription result -->
     <div id="transcriptionResult" class="mt-4">
         <h4>Transcribed Text:</h4>
-        <pre id="transcriptionText" class="p-3 border rounded bg-light"></pre>
+        <div id="transcriptionText" class="p-3 border rounded bg-light"></div>
     </div>
 </div>
 
@@ -60,7 +60,7 @@
         .then(response => response.text())
         .then(data => {
             // Display the transcribed text
-            transcriptionText.textContent = data;
+            transcriptionText.innerHTML = data.replace(/\n/g, '<br/>');
             loadingMessage.style.display = 'none';
             transcriptionResult.style.display = 'block';
         })
